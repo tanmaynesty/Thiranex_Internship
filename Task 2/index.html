@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tanmay Chaudhari | Front-End Developer Portfolio</title>
+    <meta name="description" content="Portfolio of 
+    Tanmay Chaudhari, an accessible and semantic front-end web developer specializing in HTML5, CSS3, and JavaScript.">
+    <meta name="author" content="Tanmay Chaudhari">
+    <link rel="canonical" href="https://www.tanmaychaudhariportfolio.com/">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CSS for the skip link to ensure keyboard accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
+        <a href="index.html" aria-label="Tanmay Chaudhari Home" font-weight="bold" id="logo">Tanmay Chaudhari</a>
+        
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        
+        <section aria-labelledby="hero-heading">
+            <h1 id="hero-heading">Hi, I'm Tanmay Chaudhari. I build inclusive digital experiences.</h1>
+            <p>Front-End Developer focused on semantic markup and WCAG standards.</p>
+        </section>
+
+        <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Featured Projects</h2>
+            
+            <div class="project-grid">
+                <article aria-labelledby="Calculator App">
+                    <h3 id="project1-title">Accessible Calculator App</h3>
+                    <img src="https://github.com/tanmaynesty/Calculator/raw/main/assets/main-view.png" alt="Screenshot of the Calculator App dashboard showing a sunny forecast">
+                    <p>A calculator application built with React, focusing on keyboard navigation and screen reader support.</p>
+                    <a href="https://github.com/tanmaynesty/Calculator" aria-label="View Accessible Calculator App source code on GitHub">View Project</a>
+                </article>
+
+                <article aria-labelledby="E-Commerce Site">
+                    <h3 id="project2-title">E-Commerce UI Kit</h3>
+                    <img src="ecommerce.jpg" alt="Collection of UI components for an online store">
+                    <p>A robust design system utilizing modern CSS features and semantic HTML.</p>
+                    <a href="https://github.com/tanmaynesty/CodeAlpha_CYGNUS" aria-label="View E-Commerce UI Kit source code on GitHub">View Project</a>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2026 Tanmay Chaudhari. All rights reserved.</p>
+        <nav aria-label="Social Media Navigation">
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="https://linkedin.com/in/tanmaynesty" aria-label="LinkedIn">LinkedIn</a></li>
+                <li><a href="https://github.com/tanmaynesty" aria-label="GitHub">GitHub</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
