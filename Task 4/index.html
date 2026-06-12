@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Weather Dashboard</h1>
+        
+        <div class="search-section">
+            <input type="text" id="city-input" placeholder="Enter city name (e.g., London, Tokyo)">
+            <button id="search-btn">Get Weather</button>
+        </div>
+
+        <div id="error-message" class="hidden"></div>
+
+        <div id="weather-display" class="hidden">
+            <h2 id="city-name"></h2>
+            <div class="metrics">
+                <p><strong>Temperature:</strong> <span id="temperature"></span></p>
+                <p><strong>Humidity:</strong> <span id="humidity"></span></p>
+                <p><strong>Wind Speed:</strong> <span id="wind-speed"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
