@@ -1,0 +1,302 @@
+/* =========================================
+   1. Custom Properties (CSS Variables)
+   ========================================= */
+:root {
+    /* Light Theme (Default) */
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border-color: #e2e8f0;
+    --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.4);
+}
+
+/* Automatic Dark Mode Detection */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0f172a;
+        --surface-color: #1e293b;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-color: #3b82f6;
+        --accent-hover: #60a5fa;
+        --border-color: #334155;
+    }
+}
+
+/* Manual Dark Theme Override (for a JS toggle) */
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #3b82f6;
+    --accent-hover: #60a5fa;
+    --border-color: #334155;
+}
+
+/* =========================================
+   2. Resets & Base Typography
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    /* Flexbox on body ensures the footer is pushed to the bottom if content is short */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1; /* Pushes footer down */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/* =========================================
+   3. Accessibility & Focus States
+   ========================================= */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.2s ease;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: var(--focus-ring);
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: 4px;
+}
+/* =========================================
+   4. Header & Navigation (Flexbox)
+   ========================================= */
+header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; /* Mobile first: stack logo and nav */
+    align-items: center;
+    gap: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+nav a:hover, nav a[aria-current="page"] {
+    color: var(--accent-color);
+}
+
+/* =========================================
+   5. Hero Section
+   ========================================= */
+section {
+    margin-bottom: 4rem;
+}
+
+#hero-heading {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive typography */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   6. Projects Grid (CSS Grid)
+   ========================================= */
+.project-grid {
+    display: grid;
+    /* This creates a fluid grid without media queries! */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+article {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column; /* Flexbox aligns card content */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+article img {
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    aspect-ratio: 16/9; /* Ensures uniform image sizes */
+    object-fit: cover;
+}
+
+article p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Pushes the link to the bottom of the card */
+}
+
+article a {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+article a:hover {
+    background-color: var(--accent-hover);
+}
+/* =========================================
+   7. Contact Form Styles
+   ========================================= */
+form {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent-color);
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-hover);
+}
+
+/* =========================================
+   8. Media Queries (Desktop Enhancements)
+   ========================================= */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row; /* Horizontal header on tablet/desktop */
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+
+    main {
+        padding: 4rem 2rem;
+    }
+
+    /* Create a 2-column layout for the personal info fields */
+    fieldset:first-of-type {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    fieldset:first-of-type input {
+        margin-bottom: 0; /* Let grid gap handle spacing */
+    }
+
+    button[type="submit"] {
+        width: auto; /* Shrink button width on desktop */
+    }
+}
