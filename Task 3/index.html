@@ -3,103 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Tanmay Chaudhari | Front-End Developer Portfolio</title>
-    <meta name="description" content="Portfolio of 
-    Tanmay Chaudhari, an accessible and semantic front-end web developer specializing in HTML5, CSS3, and JavaScript.">
-    <meta name="author" content="Tanmay Chaudhari">
-    <link rel="canonical" href="https://www.tanmaychaudhariportfolio.com/">
+    <title>State-Driven Task Manager</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
-
-    <style>
-        /* CSS for the skip link to ensure keyboard accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #000;
-            color: white;
-            padding: 8px;
-            z-index: 100;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-    </style>
 </head>
-
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header role="banner">
-        <a href="index.html" aria-label="Tanmay Chaudhari Home" font-weight="bold" id="logo">Tanmay Chaudhari</a>
+<body>
+    <div class="app-container">
+        <h1>Task Manager</h1>
         
-        <nav aria-label="Main Navigation">
-            <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="What needs to be done?" required autocomplete="off">
+            <button type="submit">Add</button>
+        </form>
 
-    <main id="main-content" role="main">
-        
-        <section aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Hi, I'm Tanmay Chaudhari. I build inclusive digital experiences.</h1>
-            <p>Front-End Developer focused on semantic markup and WCAG standards.</p>
-        </section>
-
-        <section aria-labelledby="projects-heading">
-            <h2 id="projects-heading">Featured Projects</h2>
-            
-            <div class="project-grid">
-                <article aria-labelledby="Calculator App">
-                    <h3 id="project1-title">Accessible Calculator App</h3>
-                    <img src="https://github.com/tanmaynesty/Calculator/raw/main/assets/main-view.png" alt="Screenshot of the Calculator App dashboard showing a sunny forecast">
-                    <p>A calculator application built with React, focusing on keyboard navigation and screen reader support.</p>
-                    <a href="https://github.com/tanmaynesty/Calculator" aria-label="View Accessible Calculator App source code on GitHub">View Project</a>
-                </article>
-
-                <article aria-labelledby="E-Commerce Site">
-                    <h3 id="project2-title">E-Commerce UI Kit</h3>
-                    <img src="ecommerce.jpg" alt="Collection of UI components for an online store">
-                    <p>A robust design system utilizing modern CSS features and semantic HTML.</p>
-                    <a href="https://github.com/tanmaynesty/CodeAlpha_CYGNUS" aria-label="View E-Commerce UI Kit source code on GitHub">View Project</a>
-                </article>
-            </div>
-        </section>
-        <h2>Task Manager</h2>
-        <br>
-    <div class="todo-app">
-
-        <nav class="todo-filters" id="filters" aria-label="Task filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="active">Active</button>
-            <button class="filter-btn" data-filter="completed">Completed</button>
-        </nav>
-
-
-        <ul id="todo-list" class="todo-list" aria-live="polite">
-            </ul>
-        <div class="todo-header">
-            <form id="todo-form" aria-label="Add new task">
-                <input type="text" id="todo-input" placeholder="What needs to be done?" required aria-required="true" autocomplete="off">
-                <button type="submit">Add Task</button>
-            </form>
+        <div class="filters" id="filters">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="active">Active</button>
+            <button data-filter="completed">Completed</button>
         </div>
+
+        <ul id="task-list"></ul>
     </div>
-    </main>
-
-    <footer role="contentinfo">
-        <p>&copy; 2026 Tanmay Chaudhari. All rights reserved.</p>
-        <nav aria-label="Social Media Navigation">
-            <ul style="list-style: none; padding: 0;">
-                <li><a href="https://linkedin.com/in/tanmaynesty" aria-label="LinkedIn">LinkedIn</a></li>
-                <li><a href="https://github.com/tanmaynesty" aria-label="GitHub">GitHub</a></li>
-            </ul>
-        </nav>
-    </footer>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
